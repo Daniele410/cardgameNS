@@ -1,7 +1,10 @@
 package com.danozzo;
 
+import com.danozzo.game.CardGame;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        CardGame game = new CardGame();
+        game.playRound();
     }
 }
