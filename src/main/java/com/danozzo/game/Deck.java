@@ -5,7 +5,6 @@ import com.danozzo.model.Rank;
 import com.danozzo.model.Suit;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,7 +18,12 @@ public class Deck {
                cards.add(new Card(rank, suit));
            }
        }
-       shuffle();
+    }
+
+    public void printDeck() {
+        for (Card card : cards) {
+            System.out.println(card);
+        }
     }
 
     public void shuffle(){
@@ -33,5 +37,8 @@ public class Deck {
     public int size(){
         return cards.size();
     }
-}
 
+    public List<Card> getCards() {
+        return cards;
+    }
+}
