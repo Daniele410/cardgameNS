@@ -49,7 +49,7 @@ The project is composed of several classes:
    Once built, you can run the game using the following command:
 
    ```bash
-   mvn exec:java -Dexec.mainClass="com.danozzo.Main"
+   java -jar target/cardgame-1.0-SNAPSHOT.jar
    ```
 
    This will start the game and print the result of each round to the console.
