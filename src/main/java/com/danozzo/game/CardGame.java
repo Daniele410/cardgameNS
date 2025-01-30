@@ -38,31 +38,24 @@ public class CardGame {
         return players;
     }
 
-    public void playRound() {
+    public void playRound(){
         List<Card> playedCards = new ArrayList<>();
-        List<Player> potentialWinners = new ArrayList<>();
+        Player winner = null;
         Card highestCard = null;
 
-        for (Player player : players) {
+        for (Player player : players){
             Card playedCard = player.playCard();
             playedCards.add(playedCard);
             System.out.println(player.getName() + " played " + playedCard);
 
-            if (highestCard == null || playedCard.compareTo(highestCard) > 0) {
+            if(highestCard == null || playedCard.compareTo(highestCard) > 0){
                 highestCard = playedCard;
-                potentialWinners.clear();
-                potentialWinners.add(player);
-            } else if (playedCard.compareTo(highestCard) == 0) {
-                potentialWinners.add(player);
+                winner = player;
             }
         }
 
-        // Randomly select a winner from the potential winners
-        Collections.shuffle(potentialWinners);
-        Player winner = potentialWinners.get(0);
-
         System.out.println("Winner of the round: " + winner.getName());
-        for (Card card : playedCards) {
+        for (Card card : playedCards){
             winner.receiveCard(card);
         }
     }
@@ -72,7 +65,4 @@ public class CardGame {
         return deck;
     }
 
-    public List<Player> getPotentialWinners() {
-        return players;
-    }
 }
